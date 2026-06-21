@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Support</title>
+  <style>
+    :root {
+      --bg: #0b0c0f;
+      --panel: #17191f;
+      --text: #f4f7fb;
+      --muted: #9da8b8;
+      --accent: #56d4d4;
+      --line: rgba(255, 255, 255, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .wrap {
+      width: min(860px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 64px 0;
+    }
+    .panel {
+      padding: 36px;
+      border-radius: 28px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 38px;
+    }
+    p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 17px;
+    }
+    .item {
+      display: block;
+      margin-top: 22px;
+      padding: 20px 22px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      text-decoration: none;
+    }
+    .item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 20px;
+    }
+    .item span {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="panel">
+      <h1>项目页面索引</h1>
+      <p>这个仓库用于托管多个项目的营销页和技术支持页。</p>
+      <a class="item" href="./habit-star/">
+        <strong>habit star</strong>
+        <span>打开项目页面</span>
+      </a>
+    </section>
+  </main>
+</body>
+</html>
