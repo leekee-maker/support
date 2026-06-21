@@ -4,81 +4,271 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>habit star - 技术支持</title>
-  <meta name="description" content="habit star 技术支持页面">
+  <meta name="description" content="habit star 技术支持与联系页面">
   <style>
     :root {
-      --bg: #0b0c0f;
-      --panel: #17191f;
-      --text: #f4f7fb;
-      --muted: #9da8b8;
-      --accent: #56d4d4;
+      --bg: #081014;
+      --panel: rgba(18, 27, 33, 0.86);
+      --panel-soft: rgba(255, 255, 255, 0.03);
+      --text: #f3f8fb;
+      --muted: #94a6b0;
+      --accent: #59d7d2;
       --line: rgba(255, 255, 255, 0.08);
+      --shadow: 0 28px 72px rgba(0, 0, 0, 0.28);
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
       color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 82% 8%, rgba(89, 215, 210, 0.16), transparent 20%),
+        radial-gradient(circle at 10% 18%, rgba(89, 215, 210, 0.10), transparent 18%),
+        linear-gradient(180deg, #091217 0%, var(--bg) 100%);
     }
-    .wrap {
-      width: min(860px, calc(100% - 40px));
+
+    .container {
+      width: min(980px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 64px 0;
+      padding: 32px 0 72px;
     }
-    .panel {
-      padding: 36px;
-      border-radius: 28px;
-      background: var(--panel);
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .topbar a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .topbar a:hover {
+      color: var(--accent);
+    }
+
+    .hero,
+    .grid-card,
+    .faq-item,
+    .contact-card {
       border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
     }
+
+    .hero {
+      padding: 38px;
+      border-radius: 30px;
+      margin-bottom: 22px;
+    }
+
+    .label {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(89, 215, 210, 0.14);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
     h1 {
-      margin: 0 0 12px;
-      font-size: 40px;
+      margin: 18px 0 12px;
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
     }
-    p, li {
+
+    .hero p {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .grid-card {
+      padding: 28px;
+      border-radius: 24px;
+    }
+
+    .grid-card h2 {
+      margin: 0 0 14px;
+      font-size: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .info-row {
+      padding: 16px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .info-row:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .info-row strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .info-row span,
+    .info-row a,
+    .faq-item p {
       color: var(--muted);
       line-height: 1.8;
-      font-size: 17px;
+      text-decoration: none;
     }
-    h2 {
-      margin-top: 30px;
-      margin-bottom: 10px;
-      font-size: 20px;
+
+    .info-row a:hover {
+      color: var(--accent);
     }
-    ul {
-      padding-left: 20px;
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      padding: 22px;
+      border-radius: 20px;
+      background: var(--panel-soft);
+    }
+
+    .faq-item h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .faq-item p {
       margin: 0;
     }
-    a {
-      color: var(--accent);
+
+    .contact-card {
+      padding: 28px;
+      border-radius: 24px;
+      text-align: center;
+    }
+
+    .contact-card h2 {
+      margin: 0 0 10px;
+      font-size: 26px;
+    }
+
+    .contact-card p {
+      max-width: 620px;
+      margin: 0 auto 18px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 18px;
+      min-width: 220px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #63ddd8, #46c8c4);
+      color: #062126;
       text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footnote {
+      margin-top: 16px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .hero,
+      .grid-card,
+      .contact-card {
+        padding: 22px;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="panel">
+  <main class="container">
+    <div class="topbar">
+      <a href="../">返回 habit star 首页</a>
+      <a href="mailto:1515149334@qq.com">联系邮箱</a>
+    </div>
+
+    <section class="hero">
+      <div class="label">Support</div>
       <h1>habit star 技术支持</h1>
-      <p>如果你在使用过程中遇到问题，可以通过以下方式获取帮助。</p>
-
-      <h2>常见问题</h2>
-      <ul>
-        <li>如果会员状态没有更新，可在 App 内“设置 - 恢复购买”中尝试恢复。</li>
-        <li>如果提醒没有生效，请检查系统通知权限是否已开启。</li>
-        <li>如果打卡数据显示异常，建议重新打开 App 后再查看。</li>
-      </ul>
-
-      <h2>联系我们</h2>
-      <p>支持邮箱：<a href="mailto:leekee-maker@outlook.com">leekee-maker@outlook.com</a></p>
-
-      <h2>应用信息</h2>
-      <p>应用名称：habit star</p>
-      <p>副标题：习惯打卡助手</p>
-
-      <h2>更多信息</h2>
-      <p><a href="../">返回首页</a></p>
+      <p>如果你在使用过程中遇到打卡异常、会员状态未更新、提醒不生效，或对产品有功能建议，可以通过本页获取帮助并联系开发者。</p>
     </section>
+
+    <section class="grid">
+      <article class="grid-card">
+        <h2>常见问题</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>会员状态没有更新</h3>
+            <p>请先打开 App 内“设置”页面，点击“恢复购买”。如果仍未恢复，请通过下方邮箱联系并说明购买设备与问题现象。</p>
+          </div>
+          <div class="faq-item">
+            <h3>提醒没有触发</h3>
+            <p>请确认系统通知权限已开启，同时检查该习惯是否已经设置提醒时间。修改后建议重新进入应用确认状态。</p>
+          </div>
+          <div class="faq-item">
+            <h3>打卡记录显示异常</h3>
+            <p>可先完全退出应用后重新打开，再前往“今天”“日历”或“统计”页面确认数据是否刷新正常。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="grid-card">
+        <h2>联系与应用信息</h2>
+        <div class="info-row">
+          <strong>支持邮箱</strong>
+          <a href="mailto:1515149334@qq.com">1515149334@qq.com</a>
+        </div>
+        <div class="info-row">
+          <strong>应用名称</strong>
+          <span>habit star</span>
+        </div>
+        <div class="info-row">
+          <strong>副标题</strong>
+          <span>习惯打卡助手</span>
+        </div>
+        <div class="info-row">
+          <strong>支持内容</strong>
+          <span>使用问题、会员恢复、提醒相关问题、功能建议</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="contact-card">
+      <h2>需要人工支持</h2>
+      <p>如果你的问题无法通过常见问题解决，可以直接发送邮件。建议在邮件中写明设备型号、系统版本、问题页面和复现步骤，便于更快定位。</p>
+      <a class="button" href="mailto:1515149334@qq.com">发送邮件至 1515149334@qq.com</a>
+    </section>
+
+    <p class="footnote">© 2026 habit star</p>
   </main>
 </body>
 </html>

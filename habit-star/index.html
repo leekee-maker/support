@@ -4,122 +4,560 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>habit star</title>
-  <meta name="description" content="habit star 是一款简洁的习惯打卡应用，帮助你记录每天想坚持的小目标。">
+  <meta name="description" content="habit star 是一款简洁、专注的习惯打卡应用，帮助你记录每日目标、查看进度，并长期保持稳定节奏。">
   <style>
     :root {
-      --bg: #0b0c0f;
-      --panel: #17191f;
-      --text: #f4f7fb;
-      --muted: #9da8b8;
-      --accent: #56d4d4;
-      --accent-soft: rgba(86, 212, 212, 0.16);
+      --bg: #071014;
+      --bg-soft: #0d171c;
+      --panel: rgba(18, 27, 33, 0.84);
+      --panel-strong: #10191f;
+      --text: #f3f8fb;
+      --muted: #93a6b0;
+      --accent: #59d7d2;
+      --accent-soft: rgba(89, 215, 210, 0.16);
       --line: rgba(255, 255, 255, 0.08);
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top right, rgba(86, 212, 212, 0.18), transparent 28%),
-        radial-gradient(circle at left center, rgba(86, 212, 212, 0.12), transparent 24%),
-        var(--bg);
       color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 15% 18%, rgba(89, 215, 210, 0.20), transparent 22%),
+        radial-gradient(circle at 88% 8%, rgba(89, 215, 210, 0.14), transparent 18%),
+        linear-gradient(180deg, #091217 0%, var(--bg) 54%, #050a0d 100%);
     }
-    .wrap {
-      width: min(960px, calc(100% - 40px));
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 72px 0;
+      padding: 28px 0 80px;
     }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, rgba(89, 215, 210, 0.28), rgba(89, 215, 210, 0.12));
+      border: 1px solid rgba(89, 215, 210, 0.24);
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .nav a,
+    .button {
+      color: var(--text);
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover,
+    .button:hover {
+      color: var(--accent);
+    }
+
     .hero {
-      padding: 48px;
-      border: 1px solid var(--line);
-      border-radius: 32px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items: stretch;
+      margin-bottom: 28px;
     }
-    .badge {
-      display: inline-block;
+
+    .hero-copy,
+    .hero-panel,
+    .section-card,
+    .feature-card,
+    .cta {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      padding: 56px;
+      border-radius: var(--radius-xl);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       padding: 8px 14px;
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent);
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 13px;
+      font-weight: 700;
     }
+
     h1 {
-      margin: 18px 0 14px;
-      font-size: clamp(42px, 8vw, 76px);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
+      margin: 22px 0 16px;
+      font-size: clamp(46px, 7vw, 76px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
     }
-    .lead {
+
+    .subtitle {
       max-width: 640px;
+      margin: 0 0 28px;
       color: var(--muted);
-      font-size: 20px;
-      line-height: 1.7;
+      font-size: 19px;
+      line-height: 1.78;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-top: 34px;
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 26px;
     }
-    .card {
-      padding: 22px;
-      border-radius: 22px;
-      background: var(--panel);
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 150px;
+      padding: 14px 18px;
+      border-radius: 16px;
       border: 1px solid var(--line);
+      font-weight: 700;
+      font-size: 15px;
     }
-    .card h2 {
-      margin: 0 0 8px;
-      font-size: 18px;
+
+    .button.primary {
+      background: linear-gradient(180deg, #63ddd8, #46c8c4);
+      color: #062126;
+      border-color: transparent;
     }
-    .card p {
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 28px;
+      letter-spacing: -0.03em;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero-panel {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      background:
+        radial-gradient(circle at top right, rgba(89, 215, 210, 0.26), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+        var(--panel-strong);
+    }
+
+    .hero-panel::before,
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(89, 215, 210, 0.08);
+      filter: blur(8px);
+    }
+
+    .hero-panel::before {
+      width: 240px;
+      height: 240px;
+      top: -120px;
+      right: -60px;
+    }
+
+    .hero-panel::after {
+      width: 180px;
+      height: 180px;
+      bottom: -60px;
+      left: -40px;
+    }
+
+    .mini-window {
+      position: relative;
+      z-index: 1;
+      border-radius: 26px;
+      padding: 22px;
+      background: rgba(8, 13, 17, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .mini-top {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .panel-title {
+      margin: 0 0 18px;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    .task-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .task {
+      display: grid;
+      grid-template-columns: 44px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .task-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(89, 215, 210, 0.14);
+      color: var(--accent);
+      font-size: 22px;
+    }
+
+    .task h3 {
+      margin: 0 0 4px;
+      font-size: 17px;
+    }
+
+    .task p {
       margin: 0;
       color: var(--muted);
-      line-height: 1.7;
+      font-size: 13px;
     }
-    .footer {
-      margin-top: 28px;
-      color: var(--muted);
+
+    .check {
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      border: 1px solid rgba(89, 215, 210, 0.32);
+      display: grid;
+      place-items: center;
+      color: var(--accent);
       font-size: 14px;
     }
-    a {
-      color: var(--accent);
-      text-decoration: none;
+
+    .section-card {
+      padding: 32px;
+      border-radius: 30px;
+      margin-bottom: 24px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 22px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 30px;
+      letter-spacing: -0.03em;
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 680px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .feature-card {
+      padding: 24px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .feature-card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .cta {
+      padding: 34px;
+      border-radius: 28px;
+      text-align: center;
+    }
+
+    .cta h2 {
+      margin: 0 0 12px;
+      font-size: 30px;
+    }
+
+    .cta p {
+      max-width: 620px;
+      margin: 0 auto 22px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .footer {
+      margin-top: 18px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .two-col,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .hero-panel,
+      .section-card,
+      .cta {
+        padding: 24px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="hero">
-      <div class="badge">App Store</div>
-      <h1>habit star</h1>
-      <p class="lead">一款简洁的习惯打卡应用。创建自己的日常目标，查看每日完成情况，用更轻松的方式坚持每一天。</p>
+  <main class="container">
+    <nav class="nav">
+      <div class="brand">
+        <div class="brand-mark">h</div>
+        <span>habit star</span>
+      </div>
+      <div class="nav-links">
+        <a href="./support/">技术支持</a>
+      </div>
+    </nav>
 
-      <div class="grid">
-        <article class="card">
-          <h2>今天页</h2>
-          <p>集中查看待完成习惯，勾选状态一目了然。</p>
-        </article>
-        <article class="card">
-          <h2>日历回顾</h2>
-          <p>按日期查看历史打卡记录，回看每一天的坚持轨迹。</p>
-        </article>
-        <article class="card">
-          <h2>统计分析</h2>
-          <p>查看连续天数、完成率和累计次数，进度更直观。</p>
-        </article>
-        <article class="card">
-          <h2>自定义习惯</h2>
-          <p>自由设置名称、图标、颜色和提醒，建立属于你的节奏。</p>
-        </article>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Habit Tracking App</div>
+        <h1>把想坚持的事，变成清晰可执行的每天。</h1>
+        <p class="subtitle">
+          habit star 专注于习惯打卡本身。你可以快速创建目标、查看当天待完成事项、按日期回看记录，并在统计页中掌握连续进度与完成率。
+        </p>
+
+        <div class="actions">
+          <a class="button primary" href="./support/">获取技术支持</a>
+          <a class="button" href="mailto:1515149334@qq.com">联系开发者</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>今天页</strong>
+            <span>集中展示当天所有习惯</span>
+          </div>
+          <div class="stat">
+            <strong>日历页</strong>
+            <span>按日期回看打卡历史</span>
+          </div>
+          <div class="stat">
+            <strong>统计页</strong>
+            <span>查看完成率与连续天数</span>
+          </div>
+        </div>
       </div>
 
-      <p class="footer">
-        技术支持：<a href="./support/">support</a>
-      </p>
+      <div class="hero-panel">
+        <div class="mini-window">
+          <div class="mini-top">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+          <h2 class="panel-title">今日习惯概览</h2>
+          <div class="task-list">
+            <div class="task">
+              <div class="task-icon">✓</div>
+              <div>
+                <h3>散步</h3>
+                <p>按天打卡，状态即时更新</p>
+              </div>
+              <div class="check">✓</div>
+            </div>
+            <div class="task">
+              <div class="task-icon">★</div>
+              <div>
+                <h3>阅读 30 分钟</h3>
+                <p>重要目标优先显示</p>
+              </div>
+              <div class="check"></div>
+            </div>
+            <div class="task">
+              <div class="task-icon">◔</div>
+              <div>
+                <h3>早睡</h3>
+                <p>持续积累每日节奏</p>
+              </div>
+              <div class="check"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <section class="section-card">
+      <div class="section-head">
+        <div>
+          <h2>核心功能</h2>
+          <p>围绕习惯记录、回顾与进度观察，保留必要功能，避免复杂操作。</p>
+        </div>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <strong>今天页快速打卡</strong>
+          <p>所有待完成习惯集中展示，进入应用后可以直接查看当天状态并快速完成打卡。</p>
+        </article>
+        <article class="feature-card">
+          <strong>自定义习惯信息</strong>
+          <p>支持设置名称、图标、颜色与提醒，让不同目标在视觉上更容易区分。</p>
+        </article>
+        <article class="feature-card">
+          <strong>日历回顾</strong>
+          <p>按日期查看历史记录，点开任意一天即可回看当天每个习惯的完成情况。</p>
+        </article>
+        <article class="feature-card">
+          <strong>统计视图</strong>
+          <p>查看连续天数、近 7 天完成率与累计次数，帮助你更清楚地判断节奏是否稳定。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card two-col">
+      <div>
+        <div class="section-head">
+          <div>
+            <h2>适合谁使用</h2>
+            <p>适合需要轻量记录习惯，但又希望每天都能快速完成操作的人。</p>
+          </div>
+        </div>
+        <ul class="list">
+          <li>想培养固定节奏的人</li>
+          <li>想减少复杂功能干扰的人</li>
+          <li>希望通过日历回看坚持过程的人</li>
+          <li>希望用统计页查看趋势的人</li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-head">
+          <div>
+            <h2>会员功能</h2>
+            <p>免费版可满足基础打卡需求，会员用于扩展长期使用空间。</p>
+          </div>
+        </div>
+        <ul class="list">
+          <li>解锁无限习惯数量</li>
+          <li>使用完整主题选项</li>
+          <li>支持恢复购买</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>需要帮助或反馈问题？</h2>
+      <p>如果你在使用 habit star 的过程中遇到异常、会员状态问题或提醒相关问题，可以直接查看技术支持页面或通过邮箱联系。</p>
+      <div class="actions" style="justify-content:center; margin-bottom:0;">
+        <a class="button primary" href="./support/">打开技术支持</a>
+        <a class="button" href="mailto:1515149334@qq.com">1515149334@qq.com</a>
+      </div>
+    </section>
+
+    <p class="footer">© 2026 habit star</p>
   </main>
 </body>
 </html>
