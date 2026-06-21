@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NightSafari</title>
+  <meta name="description" content="NightSafari 是一款 Safari 网页深浅模式助手，支持多套主题预设、网站规则和本地设置同步。">
+  <style>
+    :root {
+      --bg: #0a0f18;
+      --bg-soft: #111827;
+      --panel: rgba(17, 24, 39, 0.84);
+      --panel-strong: rgba(10, 15, 24, 0.96);
+      --text: #f7f9fd;
+      --muted: #9aa7bf;
+      --accent: #84a7ff;
+      --accent-2: #dbc295;
+      --line: rgba(255, 255, 255, 0.08);
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.34);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 16%, rgba(132, 167, 255, 0.18), transparent 22%),
+        radial-gradient(circle at 88% 10%, rgba(219, 194, 149, 0.16), transparent 18%),
+        linear-gradient(180deg, #0b111b 0%, #090d15 56%, #05070c 100%);
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 28px 0 80px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, rgba(132, 167, 255, 0.30), rgba(132, 167, 255, 0.14));
+      border: 1px solid rgba(132, 167, 255, 0.28);
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover,
+    .button:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items: stretch;
+      margin-bottom: 28px;
+    }
+
+    .hero-copy,
+    .hero-panel,
+    .section-card,
+    .feature-card,
+    .cta {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      padding: 56px;
+      border-radius: var(--radius-xl);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(132, 167, 255, 0.16);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 22px 0 16px;
+      font-size: clamp(48px, 7vw, 80px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+    }
+
+    .subtitle {
+      max-width: 640px;
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.78;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 168px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .button.primary {
+      background: linear-gradient(180deg, #94b6ff, #7d9ef1);
+      color: #0a1733;
+      border-color: transparent;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 28px;
+      letter-spacing: -0.03em;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero-panel {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      background:
+        radial-gradient(circle at top right, rgba(132, 167, 255, 0.24), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+        var(--panel-strong);
+    }
+
+    .hero-panel::before,
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(8px);
+    }
+
+    .hero-panel::before {
+      width: 240px;
+      height: 240px;
+      top: -120px;
+      right: -60px;
+      background: rgba(132, 167, 255, 0.12);
+    }
+
+    .hero-panel::after {
+      width: 180px;
+      height: 180px;
+      bottom: -60px;
+      left: -40px;
+      background: rgba(219, 194, 149, 0.10);
+    }
+
+    .mini-window {
+      position: relative;
+      z-index: 1;
+      border-radius: 26px;
+      padding: 22px;
+      background: rgba(10, 14, 22, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .mini-top {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .panel-title {
+      margin: 0 0 18px;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    .task-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .task {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .task strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 17px;
+    }
+
+    .task span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .sections {
+      display: grid;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .section-card {
+      padding: 32px;
+      border-radius: 28px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 6px;
+      font-size: 32px;
+      letter-spacing: -0.03em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .feature-card h3 {
+      margin: 16px 0 10px;
+      font-size: 20px;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      font-size: 22px;
+      font-weight: 700;
+      background: rgba(132, 167, 255, 0.14);
+      border: 1px solid rgba(132, 167, 255, 0.18);
+    }
+
+    .preset-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .preset {
+      padding: 16px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .swatch {
+      height: 88px;
+      border-radius: 18px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .preset h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .preset p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .cta {
+      padding: 32px;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .cta h2 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    .cta p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .footer {
+      margin-top: 18px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .feature-grid,
+      .preset-grid,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        display: block;
+      }
+
+      .hero-panel {
+        margin-top: 18px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head,
+      .cta {
+        display: block;
+      }
+
+      .cta .button {
+        margin-top: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <nav class="nav">
+      <div class="brand">
+        <div class="brand-mark">N</div>
+        <span>NightSafari</span>
+      </div>
+      <div class="nav-links">
+        <a href="./support/">技术支持</a>
+        <a href="../">项目索引</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <article class="hero-copy">
+        <div class="eyebrow">Safari Extension</div>
+        <h1>NightSafari<br>Safari 网页深浅模式助手</h1>
+        <p class="subtitle">NightSafari 让 Safari 网页在不破坏图片、视频和原始布局的前提下，切换到更适合白天或夜间浏览的阅读模式。支持主题预设、跟随系统、网站规则和本地设置同步。</p>
+        <div class="actions">
+          <a class="button primary" href="./support/">获取技术支持</a>
+          <a class="button" href="mailto:1515149334@qq.com">联系开发者</a>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <strong>6+</strong>
+            <span>主题预设与风格</span>
+          </div>
+          <div class="stat">
+            <strong>3</strong>
+            <span>全局启用模式</span>
+          </div>
+          <div class="stat">
+            <strong>100%</strong>
+            <span>本地保存设置</span>
+          </div>
+        </div>
+      </article>
+
+      <aside class="hero-panel">
+        <div class="mini-window">
+          <div class="mini-top">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <h2 class="panel-title">在 Safari 内快速切换当前网站规则</h2>
+          <div class="task-list">
+            <div class="task">
+              <strong>当前网站启用</strong>
+              <span>临时覆盖全局策略，让当前网站始终应用所选主题。</span>
+            </div>
+            <div class="task">
+              <strong>当前网站禁用</strong>
+              <span>对不适合处理的网站单独关闭，不影响其他站点。</span>
+            </div>
+            <div class="task">
+              <strong>恢复全局默认</strong>
+              <span>移除单站规则，重新回到统一的全局模式与主题设置。</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="sections">
+      <article class="section-card">
+        <div class="section-head">
+          <div>
+            <h2>核心功能</h2>
+            <p>围绕 Safari 深浅模式切换，保持简单、实用和可控。</p>
+          </div>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="icon">A</div>
+            <h3>多套主题预设</h3>
+            <p>支持深灰、OLED 纯黑、护眼暖色、墨蓝夜读、柔和灰雾与纸感浅色，覆盖夜读和白天浏览场景。</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">S</div>
+            <h3>跟随系统或手动控制</h3>
+            <p>可选择跟随系统、始终开启或始终关闭，普通用户无需复杂配置也能直接使用。</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">R</div>
+            <h3>网站规则</h3>
+            <p>支持当前网站启用、当前网站禁用和恢复全局默认策略，适合处理兼容性差异较大的网页。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="section-card">
+        <div class="section-head">
+          <div>
+            <h2>主题方向</h2>
+            <p>默认以背景、卡片和输入区域为主做调节，避免粗暴反色。</p>
+          </div>
+        </div>
+        <div class="preset-grid">
+          <div class="preset">
+            <div class="swatch" style="background:#17191d;"></div>
+            <h3>深灰模式</h3>
+            <p>通用、稳定，适合多数网站。</p>
+          </div>
+          <div class="preset">
+            <div class="swatch" style="background:#050506;"></div>
+            <h3>OLED 纯黑</h3>
+            <p>更深更黑，适合 OLED 屏幕。</p>
+          </div>
+          <div class="preset">
+            <div class="swatch" style="background:#4c3420;"></div>
+            <h3>护眼暖色</h3>
+            <p>低刺激暖色，更偏阅读。</p>
+          </div>
+          <div class="preset">
+            <div class="swatch" style="background:#1d2b47;"></div>
+            <h3>墨蓝夜读</h3>
+            <p>深蓝底色，层次感更强。</p>
+          </div>
+          <div class="preset">
+            <div class="swatch" style="background:#5c6272;"></div>
+            <h3>柔和灰雾</h3>
+            <p>对比更柔和，不那么压迫。</p>
+          </div>
+          <div class="preset">
+            <div class="swatch" style="background:#f7f4ec;"></div>
+            <h3>纸感浅色</h3>
+            <p>浅底深字，适合白天浏览。</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="cta">
+      <div>
+        <h2>需要帮助？</h2>
+        <p>如果你在扩展开启、主题设置、网站规则或购买相关流程里遇到问题，可以直接查看 NightSafari 技术支持页面。</p>
+      </div>
+      <a class="button primary" href="./support/">打开技术支持</a>
+    </section>
+
+    <p class="footer">© 2026 NightSafari</p>
+  </main>
+</body>
+</html>

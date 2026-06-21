@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NightSafari - 技术支持</title>
+  <meta name="description" content="NightSafari 技术支持与联系页面">
+  <style>
+    :root {
+      --bg: #0a1019;
+      --panel: rgba(17, 24, 39, 0.88);
+      --panel-soft: rgba(255, 255, 255, 0.03);
+      --text: #f7f9fd;
+      --muted: #98a5bd;
+      --accent: #84a7ff;
+      --line: rgba(255, 255, 255, 0.08);
+      --shadow: 0 28px 72px rgba(0, 0, 0, 0.28);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 82% 8%, rgba(132, 167, 255, 0.16), transparent 20%),
+        radial-gradient(circle at 10% 18%, rgba(132, 167, 255, 0.10), transparent 18%),
+        linear-gradient(180deg, #0b111b 0%, var(--bg) 100%);
+    }
+
+    .container {
+      width: min(980px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 32px 0 72px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .topbar a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .topbar a:hover {
+      color: var(--accent);
+    }
+
+    .hero,
+    .grid-card,
+    .faq-item,
+    .contact-card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 38px;
+      border-radius: 30px;
+      margin-bottom: 22px;
+    }
+
+    .label {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(132, 167, 255, 0.14);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .grid-card {
+      padding: 28px;
+      border-radius: 24px;
+    }
+
+    .grid-card h2 {
+      margin: 0 0 14px;
+      font-size: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .info-row {
+      padding: 16px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .info-row:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .info-row strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .info-row span,
+    .info-row a,
+    .faq-item p {
+      color: var(--muted);
+      line-height: 1.8;
+      text-decoration: none;
+    }
+
+    .info-row a:hover {
+      color: var(--accent);
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      padding: 22px;
+      border-radius: 20px;
+      background: var(--panel-soft);
+    }
+
+    .faq-item h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .faq-item p {
+      margin: 0;
+    }
+
+    .contact-card {
+      padding: 28px;
+      border-radius: 24px;
+      text-align: center;
+    }
+
+    .contact-card h2 {
+      margin: 0 0 10px;
+      font-size: 26px;
+    }
+
+    .contact-card p {
+      max-width: 620px;
+      margin: 0 auto 18px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 18px;
+      min-width: 220px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #94b6ff, #7d9ef1);
+      color: #0a1733;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footnote {
+      margin-top: 16px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .hero,
+      .grid-card,
+      .contact-card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="topbar">
+      <a href="../">返回 NightSafari 首页</a>
+      <a href="../../">项目索引</a>
+    </div>
+
+    <section class="hero">
+      <div class="label">Support</div>
+      <h1>NightSafari 技术支持</h1>
+      <p>如果你在使用 NightSafari 时遇到扩展未生效、Safari 权限未配置正确、主题显示异常、网站规则不工作，或对产品有建议，可以通过本页获取帮助并联系开发者。</p>
+    </section>
+
+    <section class="grid">
+      <article class="grid-card">
+        <h2>常见问题</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>扩展已经打开，但网页没有生效</h3>
+            <p>请确认 Safari 设置中的 NightSafari 扩展已开启，且“所有网站”权限设置为“允许”。修改权限后重新打开网页再测试。</p>
+          </div>
+          <div class="faq-item">
+            <h3>App 里改了主题，Safari 没同步</h3>
+            <p>NightSafari 的设置保存在本地，并共享给扩展。通常重新打开网页或打开一次 Safari 扩展 popup 后会同步最新设置。</p>
+          </div>
+          <div class="faq-item">
+            <h3>某些网站显示异常</h3>
+            <p>可以在 Safari 扩展 popup 中对当前网站单独禁用，或恢复全局默认规则。不同网站的样式实现差异较大，少量页面可能需要单站处理。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="grid-card">
+        <h2>联系与应用信息</h2>
+        <div class="info-row">
+          <strong>支持邮箱</strong>
+          <a href="mailto:1515149334@qq.com">1515149334@qq.com</a>
+        </div>
+        <div class="info-row">
+          <strong>应用名称</strong>
+          <span>NightSafari</span>
+        </div>
+        <div class="info-row">
+          <strong>应用描述</strong>
+          <span>Safari 网页深浅模式助手</span>
+        </div>
+        <div class="info-row">
+          <strong>支持内容</strong>
+          <span>扩展开启、主题设置、网站规则、同步问题、功能建议</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="contact-card">
+      <h2>仍然需要帮助？</h2>
+      <p>发送邮件时建议附上设备型号、iOS 版本、Safari 权限截图，以及遇到问题的网页地址，这样可以更快定位问题。</p>
+      <a class="button" href="mailto:1515149334@qq.com?subject=NightSafari%20Support">发送支持邮件</a>
+    </section>
+
+    <p class="footnote">© 2026 NightSafari</p>
+  </main>
+</body>
+</html>
