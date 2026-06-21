@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>嗨聊 - 技术支持</title>
+  <meta name="description" content="嗨聊技术支持页面，提供常见问题、联系信息和隐私说明。">
+  <style>
+    :root {
+      --bg: #070b12;
+      --card: rgba(17, 23, 35, 0.82);
+      --line: rgba(255,255,255,0.08);
+      --text: #f4f7fb;
+      --muted: #9faab9;
+      --accent: #7db2ff;
+      --shadow: 0 28px 84px rgba(0,0,0,.34);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 14% 12%, rgba(125,178,255,.20), transparent 20%),
+        radial-gradient(circle at 88% 8%, rgba(255,255,255,.10), transparent 18%),
+        linear-gradient(180deg, #0d1220 0%, #070b12 55%, #05070c 100%);
+    }
+    .wrap {
+      width: min(980px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 40px 0 72px;
+    }
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      border-radius: 32px;
+      padding: 42px;
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 32px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(38px, 6vw, 56px);
+      letter-spacing: -.05em;
+      line-height: 1;
+    }
+    .desc { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.8; max-width: 640px; }
+    .badge {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(125,178,255,.14);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .card {
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .card strong { display: block; margin-bottom: 10px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); line-height: 1.7; }
+    .card a { color: var(--accent); text-decoration: none; }
+    .qa {
+      margin-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+    .qa .item {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .qa .item strong { display: block; margin-bottom: 8px; font-size: 16px; }
+    .qa .item span { color: var(--muted); line-height: 1.7; }
+    .footer {
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    @media (max-width: 720px) {
+      .panel { padding: 28px 22px; }
+      .top { flex-direction: column; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="panel">
+      <div class="top">
+        <div>
+          <h1>嗨聊技术支持</h1>
+          <p class="desc">如果你在使用嗨聊时遇到问题，可以先看下面的常见说明。密钥保存在系统钥匙串中，不会以明文写入本地配置文件。</p>
+        </div>
+        <div class="badge">Support</div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <strong>联系支持</strong>
+          <p>邮箱：<a href="mailto:support@leekee-maker.com">support@leekee-maker.com</a></p>
+          <p style="margin-top:10px;">如果你没有这个邮箱域名，也可以替换成你自己的客服邮箱。</p>
+        </div>
+        <div class="card">
+          <strong>隐私说明</strong>
+          <p>API Key 由系统钥匙串加密保护，仅在调用你配置的模型服务商时使用。</p>
+        </div>
+      </div>
+
+      <div class="qa">
+        <div class="item">
+          <strong>为什么需要配置 API Key？</strong>
+          <span>嗨聊通过你配置的模型服务商生成回复，API Key 用来完成请求认证。</span>
+        </div>
+        <div class="item">
+          <strong>图片为什么可以发送？</strong>
+          <span>部分模型支持视觉输入；不支持视觉的模型会先走本机文字识别，再生成回复。</span>
+        </div>
+        <div class="item">
+          <strong>聊天记录会上传吗？</strong>
+          <span>聊天数据默认保存在本机，不会自动上传到第三方服务器。</span>
+        </div>
+      </div>
+
+      <p class="footer">如需替换正式支持邮箱、帮助文档链接或隐私政策链接，直接改这里即可。</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,1 +1,288 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>嗨聊</title>
+  <meta name="description" content="嗨聊是一款 AI 聊天回复助手，帮你更轻松地处理破冰、邀约、安慰和日常聊天。">
+  <style>
+    :root {
+      --bg0: #08111d;
+      --bg1: #111a2d;
+      --card: rgba(18, 25, 40, 0.78);
+      --line: rgba(255, 255, 255, 0.08);
+      --text: #f5f8ff;
+      --muted: #97a7bd;
+      --accent: #6ea8ff;
+      --accent2: #ff7ab8;
+      --shadow: 0 32px 90px rgba(0, 0, 0, 0.35);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 12%, rgba(110, 168, 255, 0.22), transparent 20%),
+        radial-gradient(circle at 88% 8%, rgba(255, 122, 184, 0.18), transparent 18%),
+        linear-gradient(180deg, var(--bg1) 0%, var(--bg0) 55%, #050810 100%);
+    }
+    .wrap {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 34px 0 72px;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      font-size: 18px;
+    }
+    .mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, rgba(110, 168, 255, 0.28), rgba(110, 168, 255, 0.12));
+      border: 1px solid rgba(110, 168, 255, 0.26);
+      color: var(--accent);
+    }
+    .links a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 16px;
+      font-size: 14px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      border-radius: 32px;
+    }
+    .copy {
+      padding: 56px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(110, 168, 255, 0.14);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 22px 0 14px;
+      font-size: clamp(46px, 7vw, 78px);
+      line-height: .96;
+      letter-spacing: -.05em;
+    }
+    .subtitle {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.8;
+      max-width: 640px;
+    }
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 164px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .btn.primary {
+      color: #091427;
+      border-color: transparent;
+      background: linear-gradient(180deg, #8ab6ff, #6c98ef);
+    }
+    .stats {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .stat {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .stat strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 28px;
+    }
+    .stat span { color: var(--muted); font-size: 14px; }
+    .feature {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .feature-card {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .feature-card strong { display: block; margin-bottom: 8px; font-size: 18px; }
+    .feature-card p { margin: 0; color: var(--muted); line-height: 1.7; }
+    .preview {
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(110, 168, 255, 0.18), transparent 24%),
+        radial-gradient(circle at 82% 12%, rgba(255, 122, 184, 0.16), transparent 20%),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+        rgba(11, 16, 28, 0.92);
+    }
+    .phone {
+      margin: 18px auto 0;
+      width: min(100%, 400px);
+      aspect-ratio: 9 / 18.5;
+      border-radius: 36px;
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
+      box-shadow: 0 40px 100px rgba(0,0,0,.42);
+      position: relative;
+      padding: 18px;
+    }
+    .phone::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(110,168,255,.16), transparent 22%),
+        radial-gradient(circle at 82% 8%, rgba(255,122,184,.14), transparent 18%),
+        linear-gradient(180deg, #f7f8fc 0%, #eef1f8 100%);
+    }
+    .screen {
+      position: absolute;
+      inset: 18px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #f7f8fc 0%, #eef1f8 100%);
+    }
+    .bar {
+      height: 42px;
+      background: rgba(255,255,255,.78);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0a0f17;
+      font-weight: 800;
+      border-bottom: 1px solid rgba(12, 17, 25, 0.08);
+    }
+    .sheet {
+      margin: 18px;
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 12px 30px rgba(0,0,0,.08);
+      color: #10131a;
+    }
+    .sheet-row {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(16, 19, 26, 0.08);
+    }
+    .sheet-row:last-child { border-bottom: 0; }
+    .sheet-row strong { display: block; font-size: 18px; margin-bottom: 4px; }
+    .sheet-row span { color: #798190; font-size: 13px; line-height: 1.5; }
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; }
+      .copy { padding: 38px; }
+    }
+    @media (max-width: 680px) {
+      .stats, .feature { grid-template-columns: 1fr; }
+      .copy { padding: 30px 24px; }
+      .preview { padding: 18px; }
+      .links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="nav">
+      <div class="brand"><div class="mark">聊</div>嗨聊</div>
+      <div class="links">
+        <a href="./support.html">技术支持</a>
+        <a href="#features">功能</a>
+      </div>
+    </nav>
 
+    <section class="hero">
+      <div class="panel copy">
+        <div class="eyebrow">AI 聊天回复助手</div>
+        <h1>把每一句回复，写得更自然。</h1>
+        <p class="subtitle">嗨聊根据联系人、人设、聊天风格和目标，生成多条可选回复。适合破冰、邀约、安慰、接话和日常维护。</p>
+        <div class="actions">
+          <a class="btn primary" href="./support.html">技术支持</a>
+          <a class="btn" href="#features">查看功能</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>3+</strong><span>多条回复可选</span></div>
+          <div class="stat"><strong>本地</strong><span>API Key 由钥匙串加密保存</span></div>
+          <div class="stat"><strong>图片</strong><span>支持截图文字识别和图片输入</span></div>
+        </div>
+        <div class="feature" id="features">
+          <div class="feature-card"><strong>联系人场景化</strong><p>按联系人管理聊天对象，为不同关系配置不同策略。</p></div>
+          <div class="feature-card"><strong>风格可切换</strong><p>幽默、温柔、直球、俏皮、理性等风格随时切换。</p></div>
+          <div class="feature-card"><strong>更贴合目标</strong><p>破冰、邀约、哄开心、升温、日常维护，都能对应处理。</p></div>
+          <div class="feature-card"><strong>更安全</strong><p>密钥不明文存储，使用系统钥匙串加密保护。</p></div>
+        </div>
+      </div>
+
+      <div class="panel preview">
+        <div class="phone">
+          <div class="screen">
+            <div class="bar">嗨聊</div>
+            <div class="sheet">
+              <div class="sheet-row">
+                <strong>张万森</strong>
+                <span>现男友，最近聊天进展顺利</span>
+              </div>
+              <div class="sheet-row">
+                <strong>张主任</strong>
+                <span>需要稳重表达，回复要清晰得体</span>
+              </div>
+              <div class="sheet-row">
+                <strong>小弟</strong>
+                <span>日常维护，保持联系不冷场</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
