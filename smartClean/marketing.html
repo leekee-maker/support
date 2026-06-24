@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>手机清道夫 - 产品介绍</title>
+  <style>
+    :root {
+      --bg: #09090c;
+      --panel: #16161d;
+      --text: #ffffff;
+      --muted: #b9bcc6;
+      --line: rgba(255,255,255,0.08);
+      --accent: #ff4f79;
+      --accent2: #ff9358;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,79,121,0.22), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(255,147,88,0.18), transparent 30%),
+        linear-gradient(180deg, #101018 0%, #09090c 100%);
+      line-height: 1.7;
+    }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .hero, .card {
+      background: rgba(22, 22, 29, 0.92);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+    }
+    .hero { padding: 36px; margin-bottom: 20px; }
+    .card { padding: 24px 28px; margin-bottom: 16px; }
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,79,121,0.14);
+      color: #ff7b9a;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    h1 { margin: 0 0 12px; font-size: 42px; line-height: 1.15; }
+    h2 { margin: 0 0 12px; font-size: 22px; line-height: 1.3; }
+    p, li { margin: 0; font-size: 16px; color: var(--muted); }
+    ul { margin: 0; padding-left: 20px; }
+    li + li { margin-top: 8px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 34px; }
+    }
+    a { color: #ff8c72; text-decoration: none; }
+    .foot { margin-top: 28px; text-align: center; font-size: 14px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="badge">手机清道夫</div>
+      <h1>更清楚地看见占用，更稳妥地清理相册</h1>
+      <p>手机清道夫是一款本地优先的 iPhone 存储优化与相册整理工具，帮助你快速找到大视频、大照片、截图、最近添加和疑似隐私内容，再由你手动确认后处理。</p>
+    </section>
+
+    <section class="grid">
+      <section class="card">
+        <h2>扫描占用结构</h2>
+        <p>扫描后展示照片、视频、截图和 Live Photo 的空间占比，先找到真正占空间的内容。</p>
+      </section>
+      <section class="card">
+        <h2>分类清理更直接</h2>
+        <p>全部照片、视频、截图、最近添加、疑似隐私等分类分开查看，减少盲目操作。</p>
+      </section>
+      <section class="card">
+        <h2>支持批量操作</h2>
+        <p>可按大小、时间筛选，支持连续选择、批量删除，并保留系统确认流程。</p>
+      </section>
+      <section class="card">
+        <h2>隐私识别本地完成</h2>
+        <p>对疑似证件、合同、二维码、地址等照片做本地识别，只提示风险，不上传图片内容。</p>
+      </section>
+    </section>
+
+    <section class="card">
+      <h2>适合什么场景</h2>
+      <ul>
+        <li>相册体积越来越大，不知道该从哪里开始清理。</li>
+        <li>视频和 Live Photo 占用太高，想先处理最大项。</li>
+        <li>想快速检查截图、最近添加和 App 下载图是否值得继续保留。</li>
+        <li>担心身份证、合同、银行卡、二维码等敏感照片长期留在相册里。</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>相关页面</h2>
+      <p><a href="./support.html">查看技术支持</a></p>
+      <p><a href="./privacy-policy/1.html">查看隐私政策</a></p>
+    </section>
+
+    <div class="foot">手机清道夫产品介绍</div>
+  </main>
+</body>
+</html>

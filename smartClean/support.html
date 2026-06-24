@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>手机清道夫技术支持</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #14161a;
+      --muted: #5d6470;
+      --line: #dfe4ec;
+      --accent: #ff4f79;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(180deg, #eef2f8 0%, #f8fafc 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .hero, .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(20, 22, 26, 0.08);
+    }
+    .hero { padding: 32px; margin-bottom: 20px; }
+    .card { padding: 24px 28px; margin-bottom: 16px; }
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 79, 121, 0.12);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    h1 { margin: 0 0 12px; font-size: 36px; line-height: 1.2; }
+    h2 { margin: 0 0 12px; font-size: 22px; line-height: 1.3; }
+    p, li { margin: 0; font-size: 16px; color: var(--muted); }
+    ul { margin: 0; padding-left: 20px; }
+    li + li { margin-top: 8px; }
+    a { color: var(--accent); text-decoration: none; }
+    .foot { margin-top: 28px; text-align: center; font-size: 14px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="badge">手机清道夫</div>
+      <h1>技术支持</h1>
+      <p>如果你在使用手机清道夫时遇到问题，可通过本页查看常见说明，并使用 App Store 中展示的开发者联系方式与我们联系。</p>
+    </section>
+
+    <section class="card">
+      <h2>常见问题</h2>
+      <ul>
+        <li>扫描不到内容：请先确认已授予照片权限，或检查是否仅开启了有限访问。</li>
+        <li>删除没有立即释放空间：iOS 会先将文件移动到“最近删除”，你可在系统相册中继续清理。</li>
+        <li>视频压缩或图片优化后找不到新文件：优化后的副本会保存到系统“照片”里，通常可在“最近项目”中查看。</li>
+        <li>隐私扫描耗时较长：该功能会在设备本地逐张分析图片内容，请保持应用在前台并避免锁屏。</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>功能说明</h2>
+      <ul>
+        <li>相册扫描：分析照片、视频、截图、Live Photo、最近添加等资源。</li>
+        <li>清理建议：按分类、大小、时间和风险维度帮助你手动确认后再处理。</li>
+        <li>隐私识别：在本机识别证件、二维码、合同、地址等疑似敏感内容，不上传照片与 OCR 文本。</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>联系我们</h2>
+      <p>请通过 App Store 应用页面中的开发者联系信息提交问题反馈。反馈时建议附带设备型号、iOS 版本、问题页面和现象描述，以便定位。</p>
+    </section>
+
+    <section class="card">
+      <h2>相关页面</h2>
+      <p><a href="./privacy-policy/1.html">查看隐私政策</a></p>
+      <p><a href="./marketing.html">查看产品介绍</a></p>
+    </section>
+
+    <div class="foot">手机清道夫技术支持</div>
+  </main>
+</body>
+</html>
