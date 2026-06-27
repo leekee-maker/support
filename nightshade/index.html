@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NightShade</title>
+  <meta name="description" content="NightShade 是一款网页深色模式助手，支持主题预设、网站规则和本地设置同步。">
+  <style>
+    :root {
+      --bg: #0a1019;
+      --panel: rgba(17, 24, 39, 0.88);
+      --panel-strong: rgba(10, 15, 24, 0.96);
+      --text: #f7f9fd;
+      --muted: #9aa7bf;
+      --accent: #84a7ff;
+      --line: rgba(255, 255, 255, 0.08);
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.34);
+      --radius-xl: 34px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 16%, rgba(132, 167, 255, 0.18), transparent 22%),
+        radial-gradient(circle at 88% 10%, rgba(219, 194, 149, 0.16), transparent 18%),
+        linear-gradient(180deg, #0b111b 0%, #090d15 56%, #05070c 100%);
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 28px 0 80px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav a:hover { color: var(--accent); }
+
+    .hero, .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 56px;
+      border-radius: var(--radius-xl);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(132, 167, 255, 0.16);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 22px 0 16px;
+      font-size: clamp(48px, 7vw, 80px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.78;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .card {
+      padding: 24px;
+      border-radius: 24px;
+      background: var(--panel-strong);
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .card span {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 168px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .button.primary {
+      background: linear-gradient(180deg, #94b6ff, #7d9ef1);
+      color: #0a1733;
+      border-color: transparent;
+    }
+
+    @media (max-width: 860px) {
+      .hero { padding: 22px; }
+      .cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="nav">
+      <a href="../">项目索引</a>
+      <a href="./support/">技术支持</a>
+    </div>
+
+    <section class="hero">
+      <div class="eyebrow">Web Extension</div>
+      <h1>NightShade</h1>
+      <p>网页深色模式助手，支持主题预设、网站规则和本地同步，适合白天和夜间浏览。</p>
+
+      <div class="cards">
+        <div class="card">
+          <strong>主题预设</strong>
+          <span>深灰、纯黑、护眼暖色等多套预设。</span>
+        </div>
+        <div class="card">
+          <strong>网站规则</strong>
+          <span>按当前网站单独启用、禁用或恢复默认。</span>
+        </div>
+        <div class="card">
+          <strong>本地保存</strong>
+          <span>设置保存在设备本地，并在 App 与扩展间同步。</span>
+        </div>
+      </div>
+
+      <div class="links">
+        <a class="button primary" href="./support/">技术支持</a>
+        <a class="button" href="./privacy/">隐私政策</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
