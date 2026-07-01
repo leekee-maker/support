@@ -3,23 +3,129 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>速记 Support</title>
+  <title>速记 - 技术支持</title>
   <style>
-    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1f2933; background: #f7f8fa; }
-    main { max-width: 760px; margin: 0 auto; padding: 40px 20px 64px; line-height: 1.75; }
-    section { background: #fff; border-radius: 18px; padding: 28px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); }
-    h1 { margin: 0 0 8px; font-size: 32px; }
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #17202a;
+      --muted: #687386;
+      --line: #e6eaf0;
+      --blue: #1677ff;
+      --blue-soft: #eaf3ff;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(22,119,255,.13), transparent 34%),
+        linear-gradient(180deg, #fbfcff 0%, var(--bg) 100%);
+    }
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 56px 20px 72px;
+      line-height: 1.75;
+    }
+    .hero {
+      padding: 36px;
+      border-radius: 28px;
+      background: var(--card);
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+    }
+    h1 { margin: 0; font-size: 38px; letter-spacing: -0.03em; }
+    h2 { margin: 0 0 14px; font-size: 22px; }
     p, li { font-size: 16px; }
-    a { color: #2563eb; }
+    .subtitle { margin: 12px 0 0; color: var(--muted); font-size: 18px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 999px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul { padding-left: 20px; margin: 10px 0 0; }
+    .contact {
+      margin-top: 22px;
+      padding: 22px;
+      border-radius: 22px;
+      background: #111827;
+      color: #fff;
+    }
+    .contact p { color: rgba(255,255,255,.78); margin-bottom: 0; }
+    .contact a { color: #8ec5ff; }
+    @media (max-width: 720px) {
+      main { padding-top: 32px; }
+      .hero { padding: 26px; border-radius: 22px; }
+      h1 { font-size: 32px; }
+      .grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
   <main>
-    <section>
-      <h1>速记 Support</h1>
-      <p>速记 is a note-taking app for quick notes, tags, search, voice input, and AI-assisted summaries.</p>
-      <p>For support, feedback, or privacy questions, contact us at <a href="mailto:1515149334@qq.com">1515149334@qq.com</a>.</p>
-      <p>Privacy Policy: <a href="./privacy.html">https://leekee-maker.github.io/support/quicknote/privacy.html</a></p>
+    <section class="hero">
+      <span class="badge">QuickNote Support</span>
+      <h1>速记 技术支持</h1>
+      <p class="subtitle">帮助你更快记录、整理和回顾笔记。这里提供使用说明、常见问题、隐私说明和反馈入口。</p>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>主要功能</h2>
+        <ul>
+          <li>快速创建笔记，支持标题、正文、标签和搜索。</li>
+          <li>支持置顶、收藏、最近查看和按时间回顾。</li>
+          <li>支持语音输入，将语音转换为笔记文字。</li>
+          <li>支持 AI 生成标题、改写、摘要、日报、周报和月报。</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>常见问题</h2>
+        <ul>
+          <li>如果无法语音输入，请在 iOS 设置中开启麦克风和语音识别权限。</li>
+          <li>如果 AI 功能不可用，请检查网络连接，并确认已同意 AI 数据使用说明。</li>
+          <li>笔记默认保存在本机，删除 App 会按 iOS 规则移除本地数据。</li>
+          <li>如果搜索不到内容，请确认关键词是否存在于标题、正文或标签中。</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>隐私与 AI</h2>
+        <p>速记不会进行跨 App 或跨网站追踪。仅当你主动使用 AI 功能并确认同意后，才会把选中的笔记内容、标题和标签发送到速记 AI 服务代理，并由代理转发给 DeepSeek 完成处理。</p>
+        <p>查看完整隐私政策：<a href="./privacy.html">Privacy Policy</a></p>
+      </div>
+
+      <div class="card">
+        <h2>反馈与支持</h2>
+        <p>如果你遇到崩溃、数据异常、语音识别失败、AI 结果异常或其他问题，请通过邮件联系我们。为了更快定位问题，建议附上设备型号、iOS 版本、App 版本和问题截图。</p>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>联系我们</h2>
+      <p>支持邮箱：<a href="mailto:1515149334@qq.com">1515149334@qq.com</a></p>
+      <p>通常会在 3 个工作日内处理反馈。</p>
     </section>
   </main>
 </body>
