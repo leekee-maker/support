@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>轻页 - 隐私政策</title>
+  <meta name="description" content="轻页隐私政策">
+  <style>
+    :root {
+      --bg: #071412;
+      --panel: rgba(14, 30, 28, 0.9);
+      --text: #f3fbf8;
+      --muted: #93a9a2;
+      --accent: #35d0b2;
+      --line: rgba(255, 255, 255, 0.09);
+      --shadow: 0 28px 72px rgba(0, 0, 0, 0.32);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 82% 8%, rgba(53, 208, 178, 0.18), transparent 22%),
+        radial-gradient(circle at 8% 18%, rgba(70, 154, 255, 0.12), transparent 20%),
+        linear-gradient(180deg, #081917 0%, var(--bg) 62%, #050c0b 100%);
+    }
+
+    .container {
+      width: min(980px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 32px 0 72px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .topbar a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .topbar a:hover { color: var(--accent); }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      border-radius: 30px;
+      padding: 38px;
+    }
+
+    .label {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(53, 208, 178, 0.14);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-size: clamp(34px, 6vw, 54px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      margin: 28px 0 10px;
+      font-size: 22px;
+    }
+
+    p, li {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 16px;
+    }
+
+    ul { padding-left: 20px; }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footnote {
+      margin-top: 18px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 720px) {
+      .panel { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="topbar">
+      <a href="../">返回轻页首页</a>
+      <a href="../support/">技术支持</a>
+    </div>
+
+    <section class="panel">
+      <div class="label">Privacy Policy</div>
+      <h1>轻页隐私政策</h1>
+      <p>生效日期：2026 年 7 月 5 日</p>
+
+      <h2>1. 基本说明</h2>
+      <p>轻页是一款本地优先的 PDF 和文档处理工具。本隐私政策说明我们如何处理与本 App 有关的信息。</p>
+
+      <h2>2. 本地文件和文档</h2>
+      <p>用户可以主动导入 PDF、图片、Word、TXT 等文件，也可以使用相机扫描纸质文件生成 PDF。这些文件默认保存在本 App 的本地沙盒中，用于预览、整理、转换、压缩、OCR、水印、加密、打印或导出。</p>
+      <p>本 App 不会自动上传用户文档。</p>
+
+      <h2>3. 相机、相册和文件</h2>
+      <ul>
+        <li>相机仅在用户使用“扫描成 PDF”时请求，用于拍摄纸质文件、识别边缘、裁边并生成 PDF。</li>
+        <li>相册和文件仅在用户主动选择图片或文件时访问。用户未选择的内容不会被读取。</li>
+      </ul>
+
+      <h2>4. OCR 和文档处理</h2>
+      <p>OCR、PDF 处理、图片转换和压缩等基础功能默认在设备本机完成。</p>
+
+      <h2>5. 反馈信息</h2>
+      <p>如果用户主动提交反馈，本 App 会根据用户填写的内容生成本地反馈包，可能包含问题描述、用户主动填写的联系方式、用户主动添加的截图、App 版本和系统版本。</p>
+      <p>反馈功能会打开系统分享面板。只有用户主动选择发送渠道后，反馈内容才会发送给用户选择的对象。</p>
+
+      <h2>6. 我们不会做的事</h2>
+      <ul>
+        <li>不强制用户登录。</li>
+        <li>不自动上传用户文档。</li>
+        <li>不出售用户数据。</li>
+        <li>不使用第三方广告 SDK。</li>
+        <li>不进行跨 App 或跨网站追踪。</li>
+        <li>不收集精确位置、通讯录、健康数据或支付信息。</li>
+      </ul>
+
+      <h2>7. 数据用途</h2>
+      <p>用户文档用于完成用户主动发起的本地处理任务，例如扫描、合并、拆分、OCR、压缩、转换、水印、加密和打印。反馈信息仅用于问题排查、客服沟通和产品改进。</p>
+
+      <h2>8. 数据保存与共享</h2>
+      <p>用户导入或生成的文件保存在设备本地。用户可以在 App 内删除相关文件，也可以通过系统设置或卸载 App 删除本地数据。</p>
+      <p>本 App 不会自动向第三方共享用户文档或个人信息。当用户使用系统分享、邮件、打印、导出或第三方 App 打开文件时，相关内容会由用户选择的系统服务或第三方 App 处理。</p>
+
+      <h2>9. 儿童隐私</h2>
+      <p>本 App 不面向儿童专门设计，也不主动收集儿童个人信息。</p>
+
+      <h2>10. 政策更新</h2>
+      <p>如果本隐私政策发生重大变更，我们会在 App 或本页面中更新说明。</p>
+
+      <h2>11. 联系我们</h2>
+      <p>如需咨询隐私相关问题，请通过以下邮箱联系：</p>
+      <p><a href="mailto:1515149334@qq.com">1515149334@qq.com</a></p>
+    </section>
+
+    <p class="footnote">© 2026 轻页</p>
+  </main>
+</body>
+</html>

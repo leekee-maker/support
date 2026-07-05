@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>轻页 - 技术支持</title>
+  <meta name="description" content="轻页技术支持与常见问题">
+  <style>
+    :root {
+      --bg: #071412;
+      --panel: rgba(14, 30, 28, 0.9);
+      --panel-soft: rgba(255, 255, 255, 0.035);
+      --text: #f3fbf8;
+      --muted: #93a9a2;
+      --accent: #35d0b2;
+      --line: rgba(255, 255, 255, 0.09);
+      --shadow: 0 28px 72px rgba(0, 0, 0, 0.32);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 82% 8%, rgba(53, 208, 178, 0.18), transparent 22%),
+        radial-gradient(circle at 8% 18%, rgba(70, 154, 255, 0.12), transparent 20%),
+        linear-gradient(180deg, #081917 0%, var(--bg) 62%, #050c0b 100%);
+    }
+
+    .container {
+      width: min(980px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 32px 0 72px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .topbar a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .topbar a:hover { color: var(--accent); }
+
+    .hero,
+    .card,
+    .faq-item,
+    .contact {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 38px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+    }
+
+    .label {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(53, 208, 178, 0.14);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 24px;
+    }
+
+    p, li {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      padding: 26px;
+      border-radius: 24px;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .faq-item {
+      padding: 22px;
+      border-radius: 20px;
+      background: var(--panel-soft);
+    }
+
+    .faq-item h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .faq-item p {
+      margin: 0;
+    }
+
+    .contact {
+      padding: 28px;
+      border-radius: 24px;
+      text-align: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 18px;
+      min-width: 220px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #43dfc0, #25bea2);
+      color: #04231e;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footnote {
+      margin-top: 16px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero,
+      .card,
+      .contact { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="topbar">
+      <a href="../">返回轻页首页</a>
+      <a href="../privacy/">隐私政策</a>
+    </div>
+
+    <section class="hero">
+      <div class="label">Support</div>
+      <h1>轻页技术支持</h1>
+      <p>轻页是一款本地优先的 PDF 和文档处理工具，支持扫描成 PDF、文件导入、PDF 预览、合并、拆分、整理、OCR、图片转 PDF、PDF 转图片、Word 转 PDF、压缩、水印、加密和打印。</p>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>主要能力</h2>
+        <ul>
+          <li>扫描纸质文件并生成 PDF</li>
+          <li>导入系统文件、图片和微信文件</li>
+          <li>合并、拆分、整理、压缩 PDF</li>
+          <li>OCR 识别、图片转 PDF、PDF 转图片</li>
+          <li>文字水印、PDF 加密和打印</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>反馈建议</h2>
+        <p>提交问题时建议附上 App 版本、iOS 版本、设备型号、文件类型、操作步骤、截图或错误提示。</p>
+      </div>
+    </section>
+
+    <section class="faq-list">
+      <div class="faq-item">
+        <h3>文件会上传到服务器吗？</h3>
+        <p>不会。基础文档处理默认在设备本机完成，用户导入、扫描或生成的文件默认保存在 App 本地沙盒中。</p>
+      </div>
+      <div class="faq-item">
+        <h3>为什么扫描功能在模拟器不可用？</h3>
+        <p>扫描成 PDF 依赖系统文档扫描相机能力，需要在支持相机的真机上使用。</p>
+      </div>
+      <div class="faq-item">
+        <h3>支持哪些文件？</h3>
+        <p>当前支持导入 PDF、图片、Word、RTF、TXT 等常见文件。不同文件类型可用的处理功能会有所不同。</p>
+      </div>
+      <div class="faq-item">
+        <h3>OCR 识别在哪里？</h3>
+        <p>在工具箱的“识别提取”分类中选择 OCR，也可以在扫描结果页继续进行 OCR。</p>
+      </div>
+      <div class="faq-item">
+        <h3>导出会添加水印吗？</h3>
+        <p>不会。App 不会给导出的文件自动添加品牌水印。</p>
+      </div>
+      <div class="faq-item">
+        <h3>如何删除本地文件？</h3>
+        <p>进入“文件”页，选择需要删除的本地文件并执行删除。也可以卸载 App 清除本地沙盒数据。</p>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>联系我们</h2>
+      <p>如需反馈问题或咨询隐私事项，请发送邮件。</p>
+      <a class="button" href="mailto:1515149334@qq.com">1515149334@qq.com</a>
+    </section>
+
+    <p class="footnote">© 2026 轻页</p>
+  </main>
+</body>
+</html>
