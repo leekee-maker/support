@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sleep Well Sleep Tracker - 技术支持</title>
+  <meta name="description" content="Sleep Well Sleep Tracker 技术支持与联系页面">
+  <style>
+    :root {
+      --bg: #07121d;
+      --panel: rgba(31, 39, 67, 0.9);
+      --panel-soft: rgba(255, 255, 255, 0.04);
+      --text: #f7fbff;
+      --muted: #aab4c5;
+      --accent: #58cdd4;
+      --blue: #4c86ff;
+      --line: rgba(255, 255, 255, 0.1);
+      --shadow: 0 28px 72px rgba(0, 0, 0, 0.3);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 82% 8%, rgba(76, 134, 255, 0.16), transparent 20%),
+        radial-gradient(circle at 10% 18%, rgba(88, 205, 212, 0.14), transparent 18%),
+        linear-gradient(180deg, #0b1b28 0%, var(--bg) 100%);
+    }
+    .container { width: min(980px, calc(100% - 40px)); margin: 0 auto; padding: 32px 0 72px; }
+    .topbar { display: flex; justify-content: space-between; margin-bottom: 24px; }
+    .topbar a { color: var(--muted); text-decoration: none; font-size: 14px; }
+    .topbar a:hover { color: var(--accent); }
+    .hero, .grid-card, .faq-item, .contact-card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+    .hero { padding: 38px; border-radius: 30px; margin-bottom: 22px; }
+    .label { display: inline-block; padding: 8px 14px; border-radius: 999px; background: rgba(88, 205, 212, 0.14); color: var(--accent); font-size: 13px; font-weight: 700; }
+    h1 { margin: 18px 0 12px; font-size: clamp(36px, 6vw, 58px); line-height: 1.02; }
+    .hero p { max-width: 760px; margin: 0; color: var(--muted); font-size: 18px; line-height: 1.8; }
+    .grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 18px; margin-bottom: 22px; }
+    .grid-card { padding: 28px; border-radius: 24px; }
+    .grid-card h2 { margin: 0 0 14px; font-size: 24px; }
+    .faq-list { display: grid; gap: 14px; }
+    .faq-item { padding: 22px; border-radius: 20px; background: var(--panel-soft); }
+    .faq-item h3 { margin: 0 0 10px; font-size: 18px; }
+    .faq-item p, .info-row span, .info-row a, .contact-card p { color: var(--muted); line-height: 1.8; text-decoration: none; }
+    .info-row { padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+    .info-row:first-of-type { border-top: 0; padding-top: 0; }
+    .info-row strong { display: block; margin-bottom: 6px; font-size: 15px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; padding: 14px 18px; min-width: 220px; border-radius: 16px; background: linear-gradient(90deg, var(--accent), var(--blue)); color: #03101d; text-decoration: none; font-weight: 700; }
+    .contact-card { padding: 28px; border-radius: 24px; text-align: center; }
+    .contact-card h2 { margin: 0 0 10px; font-size: 26px; }
+    .footnote { margin-top: 16px; text-align: center; color: var(--muted); font-size: 13px; }
+    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } .hero, .grid-card, .contact-card { padding: 22px; } }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="topbar">
+      <a href="../">返回 Sleep Well 首页</a>
+      <a href="../../">项目索引</a>
+    </div>
+
+    <section class="hero">
+      <div class="label">Support</div>
+      <h1>Sleep Well 技术支持</h1>
+      <p>如果你在使用 Sleep Well Sleep Tracker 时遇到睡眠监测、白噪音播放、录音权限、Apple Health 同步、语言设置或数据记录问题，可以通过本页获取帮助并联系开发者。</p>
+    </section>
+
+    <section class="grid">
+      <article class="grid-card">
+        <h2>常见问题</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>无法开始睡眠监测</h3>
+            <p>请确认已允许麦克风权限。睡眠监测需要在你主动开启后使用麦克风记录夜间环境声音和疑似打鼾片段。</p>
+          </div>
+          <div class="faq-item">
+            <h3>白噪音无法播放或循环不自然</h3>
+            <p>请确认设备未静音、音量正常，并尝试重新选择声源。多个声源混音时可以单独调节每路音量。</p>
+          </div>
+          <div class="faq-item">
+            <h3>鼾声识别不准确</h3>
+            <p>环境噪音、手机摆放距离和房间回声都会影响识别。建议将手机放在床边稳定位置，并在安静环境下使用。</p>
+          </div>
+          <div class="faq-item">
+            <h3>Apple Health 数据没有同步</h3>
+            <p>请在系统健康权限中确认 Sleep Well 已获得读取或写入睡眠数据的权限，再返回 App 重试。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="grid-card">
+        <h2>联系与应用信息</h2>
+        <div class="info-row"><strong>支持邮箱</strong><a href="mailto:1515149334@qq.com">1515149334@qq.com</a></div>
+        <div class="info-row"><strong>应用名称</strong><span>Sleep Well Sleep Tracker</span></div>
+        <div class="info-row"><strong>应用版本</strong><span>1.0</span></div>
+        <div class="info-row"><strong>支持内容</strong><span>睡眠监测、白噪音、鼾声样本、睡眠数据、语言设置、隐私与权限</span></div>
+      </article>
+    </section>
+
+    <section class="contact-card">
+      <h2>发送反馈</h2>
+      <p>发送邮件时建议附上设备型号、iOS 版本、App 版本、问题截图和复现步骤，这样可以更快定位问题。</p>
+      <a class="button" href="mailto:1515149334@qq.com?subject=Sleep%20Well%20Support">发送支持邮件</a>
+    </section>
+
+    <p class="footnote">© 2026 Sleep Well Sleep Tracker</p>
+  </main>
+</body>
+</html>
